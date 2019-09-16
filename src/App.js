@@ -1,7 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Admin, Resource, ListGuesser } from 'react-admin';
+
 import './App.css';
 
+import dataProvider from './dataProvider';
+
+const App = () => (
+    <Admin dataProvider={dataProvider}>
+        <Resource name="customers" list={ListGuesser} />
+    </Admin>
+);
+/*
 function App() {
   return (
     <div className="App">
@@ -22,5 +31,5 @@ function App() {
     </div>
   );
 }
-
+*/
 export default App;
