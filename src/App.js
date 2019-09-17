@@ -4,6 +4,7 @@ import { Admin, Resource, ListGuesser } from 'react-admin';
 import './App.css';
 
 import authClient from './authClient';
+import sagas from './sagas';
 import dataProvider from './dataProvider';
 import { Dashboard } from './dashboard';
 import { darkTheme } from './theme';
@@ -12,6 +13,7 @@ const App = () => (
     <Admin
         title="Posters Galore Admin"
         dataProvider={dataProvider}
+        customSagas={sagas}
         theme={darkTheme}
         authProvider={authClient}
         dashboard={Dashboard}
