@@ -5,14 +5,16 @@ import './App.css';
 
 import authClient from './authClient';
 import sagas from './sagas';
+import themeReducer from './themeReducer';
+import { darkTheme } from './theme';
 import dataProvider from './dataProvider';
 import { Dashboard } from './dashboard';
-import { darkTheme } from './theme';
 
 const App = () => (
     <Admin
         title="Posters Galore Admin"
         dataProvider={dataProvider}
+        customReducers={{ theme: themeReducer }}
         customSagas={sagas}
         theme={darkTheme}
         authProvider={authClient}
