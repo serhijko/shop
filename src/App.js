@@ -8,7 +8,11 @@ import sagas from './sagas';
 import themeReducer from './themeReducer';
 import { darkTheme } from './theme';
 import dataProvider from './dataProvider';
+import Login from './Login';
 import { Dashboard } from './dashboard';
+import messages from './i18n';
+
+const i18nProvider = locale => messages[locale];
 
 const App = () => (
     <Admin
@@ -16,9 +20,11 @@ const App = () => (
         dataProvider={dataProvider}
         customReducers={{ theme: themeReducer }}
         customSagas={sagas}
-        theme={darkTheme}
         authProvider={authClient}
         dashboard={Dashboard}
+        loginPage={Login}
+        locale="en"
+        i18nProvider={i18nProvider}
     >
         <Resource
             name="customers"
