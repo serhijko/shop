@@ -6,9 +6,9 @@ import './App.css';
 import authClient from './authClient';
 import sagas from './sagas';
 import themeReducer from './themeReducer';
-import { darkTheme } from './theme';
 import dataProvider from './dataProvider';
 import Login from './Login';
+import Layout from './Layout';
 import { Dashboard } from './dashboard';
 import messages from './i18n';
 
@@ -23,6 +23,7 @@ const App = () => (
         authProvider={authClient}
         dashboard={Dashboard}
         loginPage={Login}
+        appLayout={Layout}
         locale="en"
         i18nProvider={i18nProvider}
     >
