@@ -9,6 +9,7 @@ import themeReducer from './themeReducer';
 import dataProvider from './dataProvider';
 import Login from './Login';
 import Layout from './Layout';
+import Menu from './Menu';
 import { Dashboard } from './dashboard';
 import messages from './i18n';
 
@@ -24,7 +25,8 @@ const App = () => (
         dashboard={Dashboard}
         loginPage={Login}
         appLayout={Layout}
-        locale="en"
+        menu={Menu}
+        locale="fr"
         i18nProvider={i18nProvider}
     >
         <Resource

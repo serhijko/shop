@@ -7,11 +7,26 @@ export default {
             name: 'Theme',
             light: 'Light',
             dark: 'Dark',
-        }
+        },
     },
     resources: {
         customers: {
-            name: 'Customer |||| Customers',
+            name: 'Client |||| Clients',
+        },
+        commands: {
+            name: 'Commande |||| Commandes',
+        },
+        products: {
+            name: 'Poster |||| Posters',
+        },
+        categories: {
+            name: 'Catégorie |||| Catégories',
+        },
+        reviews: {
+            name: 'Commentaire |||| Commentaires',
+        },
+        segments: {
+            name: 'Segments',
         },
     },
 };
