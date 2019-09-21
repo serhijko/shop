@@ -26,7 +26,7 @@ const App = () => (
         loginPage={Login}
         appLayout={Layout}
         menu={Menu}
-        locale="fr"
+        locale="en"
         i18nProvider={i18nProvider}
     >
         <Resource
