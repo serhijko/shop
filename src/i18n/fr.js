@@ -45,6 +45,18 @@ export default {
         },
         segments: {
             name: 'Segments',
+            fields: {
+                customers: 'Clients',
+                name: 'Nom',
+            },
+            data: {
+                compulsive: 'Compulsif',
+                collector: 'Collectionneur',
+                ordered_once: 'A commandé',
+                regular: 'Régulier',
+                returns: 'A renvoyé',
+                reviewer: 'Commentateur',
+            },
         },
     },
 };
