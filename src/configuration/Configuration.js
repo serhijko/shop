@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Card, CardContent } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
-import { translate, ViewTitle } from 'react-admin';
+import { translate, changeLocale, ViewTitle } from 'react-admin';
 
 import { changeTheme } from './actions';
 
@@ -13,7 +13,9 @@ const styles = {
 
 const Configuration = ({
     theme,
+    locale,
     changeTheme,
+    changeLocale,
     translate,
 }) => (
     <Card>
@@ -37,13 +39,34 @@ const Configuration = ({
                 {translate('pos.theme.dark')}
             </Button>
         </CardContent>
+        <CardContent>
+            <div style={styles.label}>{translate('pos.language')}</div>
+            <Button
+                raised
+                style={styles.button}
+                color={locale === 'en' ? 'primary' : 'default'}
+                onClick={() => changeLocale('en')}
+            >
+                en
+            </Button>
+            <Button
+                raised
+                style={styles.button}
+                color={locale === 'fr' ? 'primary' : 'default'}
+                onClick={() => changeLocale('fr')}
+            >
+                fr
+            </Button>
+        </CardContent>
     </Card>
 );
 
 const mapStateToProps = state => ({
     theme: state.theme,
+    locale: state.i18n.locale,
 });
 
 export default connect(mapStateToProps, {
+    changeLocale,
     changeTheme,
 })(translate(Configuration));
