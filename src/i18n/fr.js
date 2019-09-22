@@ -5,8 +5,8 @@ export default {
         language: 'Langue',
         theme: {
             name: 'Theme',
-            light: 'Light',
-            dark: 'Dark',
+            light: 'Clair',
+            dark: 'Obscur',
         },
         dashboard: {
             monthly_revenue: 'CA à 30 jours',

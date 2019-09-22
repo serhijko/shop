@@ -11,6 +11,7 @@ import Login from './Login';
 import Layout from './Layout';
 import Menu from './Menu';
 import { Dashboard } from './dashboard';
+import customRoutes from './routes';
 import messages from './i18n';
 
 const i18nProvider = locale => messages[locale];
@@ -21,6 +22,7 @@ const App = () => (
         dataProvider={dataProvider}
         customReducers={{ theme: themeReducer }}
         customSagas={sagas}
+        customRoutes={customRoutes}
         authProvider={authClient}
         dashboard={Dashboard}
         loginPage={Login}
