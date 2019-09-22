@@ -5,11 +5,11 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import LabelIcon from '@material-ui/icons/Label';
 import { translate, DashboardMenuItem, MenuItemLink } from 'react-admin';
 
-import VisitorIcon from '@material-ui/icons/Person';
-import CommandIcon from '@material-ui/icons/AttachMoney';
-import ProductIcon from '@material-ui/icons/Collections';
-import CategoryIcon from '@material-ui/icons/Bookmark';
-import ReviewIcon from '@material-ui/icons/Comment';
+import { VisitorIcon } from './visitors';
+import { CommandIcon } from './commands';
+import { ProductIcon } from './products';
+import { CategoryIcon } from './categories';
+import { ReviewIcon } from './reviews';
 
 const items = [
     { name: 'customers', icon: <VisitorIcon /> },
