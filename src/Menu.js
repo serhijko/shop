@@ -9,7 +9,7 @@ import { VisitorIcon } from './visitors';
 import { CommandIcon } from './commands';
 import { ProductIcon } from './products';
 import { CategoryIcon } from './categories';
-import { ReviewIcon } from './reviews';
+import { ReviewIcon } from './reviews'; import LocaleSwitcher from './configuration/LocaleSwitcher';
 
 const items = [
     { name: 'customers', icon: <VisitorIcon /> },
@@ -48,7 +48,7 @@ const Menu = ({ onMenuTap, translate, logout }) => (
             primaryText={translate('pos.configuration')}
             leftIcon={<SettingsIcon />}
             onClick={onMenuTap}
-        />
+        /><LocaleSwitcher />
         {logout}
     </div>
 );
