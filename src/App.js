@@ -1,5 +1,5 @@
 import React from 'react';
-import { Admin, Resource, ListGuesser } from 'react-admin';
+import { Admin, Resource, ListGuesser, EditGuesser } from 'react-admin';
 
 import './App.css';
 
@@ -15,6 +15,7 @@ import customRoutes from './routes';
 import messages from './i18n';
 
 import {
+    VisitorEdit,
     VisitorIcon,
     VisitorList,
 } from './visitors';
@@ -39,6 +40,7 @@ const App = () => (
         <Resource
             name="customers"
             list={VisitorList}
+            edit={VisitorEdit}
             icon={VisitorIcon}
         />
         <Resource

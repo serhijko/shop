@@ -31,19 +31,39 @@ export default {
         customers: {
             name: 'Client |||| Clients',
             fields: {
+                address: 'Rue',
+                birthday: 'Anniversaire',
+                city: 'Ville',
                 commands: 'Commandes',
+                first_name: 'Prénom',
+                first_seen: 'Première visite',
                 groups: 'Segments',
                 has_newsletter: 'Abonné à la newsletter',
-                has_ordered: 'A commendé',
+                has_ordered: 'A commandé',
+                last_name: 'Nom',
                 last_seen: 'Vu le',
                 last_seen_gte: 'Vu depuis',
                 name: 'Nom',
                 latest_purchase: 'Dernier achat',
                 total_spent: 'Dépenses',
+                zipcode: 'Code postal',
+            },
+            tabs: {
+                identity: 'Identité',
+                address: 'Adresse',
+                orders: 'Commandes',
+                reviews: 'Commentaires',
+                stats: 'Statistiques',
             },
         },
         commands: {
             name: 'Commande |||| Commandes',
+            fields: {
+                customer_id: 'Client',
+                nb_items: 'Nb articles',
+                reference: 'Référence',
+                status: 'Etat',
+            },
         },
         products: {
             name: 'Poster |||| Posters',
@@ -53,6 +73,13 @@ export default {
         },
         reviews: {
             name: 'Commentaire |||| Commentaires',
+            fields: {
+                customer_id: 'Client',
+                product_id: 'Produit',
+                date: 'Date',
+                comment: 'Texte',
+                rating: 'Classement',
+            },
         },
         segments: {
             name: 'Segments',

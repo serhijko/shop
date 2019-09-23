@@ -4,7 +4,7 @@ import pure from 'recompose/pure';
 
 const FullNameField = ({ record = {}, size = 25 }) => (
     <div style={{ display: 'flex', flexWrap: 'nowrap', alignItems: 'center' }}>
-        <AvatarField record={record.avatar} size={size} />
+        <AvatarField record={record} size={size} />
         {record.first_name} {record.last_name}
     </div>
 );

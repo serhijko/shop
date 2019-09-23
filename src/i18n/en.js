@@ -37,9 +37,20 @@ export default {
                 name: 'Name',
                 total_spent: 'Total spent',
             },
+            tabs: {
+                identity: 'Identity',
+                address: 'Address',
+                orders: 'Orders',
+                reviews: 'Reviews',
+                stats: 'Stats',
+            },
         },
         commands: {
             name: 'Order |||| Orders',
+            fields: {
+                customer_id: 'Customer',
+                nb_items: 'Nb Items',
+            },
         },
         products: {
             name: 'Poster |||| Posters',
@@ -49,6 +60,13 @@ export default {
         },
         reviews: {
             name: 'Review |||| Reviews',
+            fields: {
+                customer_id: 'Customer',
+                product_id: 'Product',
+                date: 'Date',
+                comment: 'Comment',
+                rating: 'Rating',
+            },
         },
         segments: {
             name: 'Segments',
