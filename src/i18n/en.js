@@ -30,6 +30,13 @@ export default {
     resources: {
         customers: {
             name: 'Customer |||| Customers',
+            fields: {
+                commands: 'Orders',
+                groups: 'Segments',
+                last_seen_gte: 'Visited Since',
+                name: 'Name',
+                total_spent: 'Total spent',
+            },
         },
         commands: {
             name: 'Order |||| Orders',

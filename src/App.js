@@ -14,6 +14,11 @@ import { Dashboard } from './dashboard';
 import customRoutes from './routes';
 import messages from './i18n';
 
+import {
+    VisitorIcon,
+    VisitorList,
+} from './visitors';
+
 const i18nProvider = locale => messages[locale];
 
 const App = () => (
@@ -33,7 +38,8 @@ const App = () => (
     >
         <Resource
             name="customers"
-            list={ListGuesser}
+            list={VisitorList}
+            icon={VisitorIcon}
         />
         <Resource
             name="commands"
