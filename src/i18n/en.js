@@ -49,7 +49,10 @@ export default {
             name: 'Order |||| Orders',
             fields: {
                 customer_id: 'Customer',
+                date_gte: 'Passed Since',
+                date_lte: 'Passed Before',
                 nb_items: 'Nb Items',
+                total_gte: 'Min amount',
             },
         },
         products: {

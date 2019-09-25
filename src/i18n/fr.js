@@ -60,9 +60,13 @@ export default {
             name: 'Commande |||| Commandes',
             fields: {
                 customer_id: 'Client',
+                date_gte: 'Passées depuis',
+                date_lte: 'Passées avant',
                 nb_items: 'Nb articles',
                 reference: 'Référence',
+                returned: 'Annulée',
                 status: 'Etat',
+                total_gte: 'Montant minimum',
             },
         },
         products: {
