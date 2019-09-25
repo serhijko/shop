@@ -59,6 +59,15 @@ export default {
         commands: {
             name: 'Commande |||| Commandes',
             fields: {
+                basket: {
+                    delivery: 'Frais de livraison',
+                    reference: 'Référence',
+                    quantity: 'Quantité',
+                    sum: 'Sous-total',
+                    tax_rate: 'TVA',
+                    total: 'Total',
+                    unit_price: 'P.U.',
+                },
                 customer_id: 'Client',
                 date_gte: 'Passées depuis',
                 date_lte: 'Passées avant',

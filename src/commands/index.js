@@ -21,6 +21,8 @@ import {
 } from 'react-admin';
 import Icon from '@material-ui/icons/AttachMoney';
 
+import Basket from './Basket';
+import NbItemsField from './NbItemsField';
 import CustomerReferenceField from '../visitors/CustomerReferenceField';
 
 export const CommandIcon = Icon;
@@ -61,6 +63,7 @@ export const CommandList = props => (
             <DateField source="date" showTime />
             <TextField source="reference" />
             <CustomerReferenceField />
+            <NbItemsField />
             <NumberField
                 source="total"
                 options={{ style: 'currency', currency: 'USD' }}
@@ -72,3 +75,34 @@ export const CommandList = props => (
         </Datagrid>
     </List>
 );
+
+const CommandTitle = translate(({ record, translate }) => (
+    <span>
+        {translate('resources.commands.name', { smart_count: 1 })} #{record.reference}
+    </span>
+));
+
+export const CommandEdit = translate(({ translate, ...rest }) => (
+    <Edit title={<CommandTitle />} {...rest}>
+        <SimpleForm>
+            <Basket />
+            <DateInput source="date" />
+            <ReferenceInput source="customer_id" reference="customers">
+                <AutocompleteInput
+                    optionText={choice =>
+                        `${choice.first_name} ${choice.last_name}`}
+                />
+            </ReferenceInput>
+            <SelectInput
+                source="status"
+                choices={[
+                    { id: 'delivered', name: 'delivered' },
+                    { id: 'ordered', name: 'ordered' },
+                    { id: 'cancelled', name: 'cancelled' },
+                ]}
+            />
+            <BooleanInput source="returned" />
+            <div style={{ clear: 'both' }} />
+        </SimpleForm>
+    </Edit>
+));

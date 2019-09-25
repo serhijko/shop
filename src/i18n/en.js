@@ -48,6 +48,15 @@ export default {
         commands: {
             name: 'Order |||| Orders',
             fields: {
+                basket: {
+                    delivery: 'Delivery',
+                    reference: 'Reference',
+                    quantity: 'Quantity',
+                    sum: 'Sum',
+                    tax_rate: 'Tax Rate',
+                    total: 'Total',
+                    unit_price: 'Unit Price',
+                },
                 customer_id: 'Customer',
                 date_gte: 'Passed Since',
                 date_lte: 'Passed Before',
