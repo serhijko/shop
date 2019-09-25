@@ -19,7 +19,7 @@ import {
     VisitorIcon,
     VisitorList,
 } from './visitors';
-import { CommandEdit, CommandList } from './commands';
+import { CommandEdit, CommandIcon, CommandList } from './commands';
 
 const i18nProvider = locale => messages[locale];
 
@@ -48,6 +48,7 @@ const App = () => (
             name="commands"
             list={CommandList}
             edit={CommandEdit}
+            icon={CommandIcon}
         />
         <Resource
             name="products"
