@@ -95,6 +95,12 @@ export default {
                 width_lte: 'Largeur maxi',
                 width: 'Largeur',
             },
+            tabs: {
+                image: 'Image',
+                details: 'Détails',
+                description: 'Description',
+                reviews: 'Commentaires',
+            },
         },
         categories: {
             name: 'Catégorie |||| Catégories',

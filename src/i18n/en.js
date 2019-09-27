@@ -85,6 +85,7 @@ export default {
                 image: 'Image',
                 details: 'Details',
                 description: 'Description',
+                reviews: 'Reviews',
             },
         },
         categories: {

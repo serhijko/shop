@@ -20,7 +20,11 @@ import {
     VisitorList,
 } from './visitors';
 import { CommandEdit, CommandIcon, CommandList } from './commands';
-import { ProductCreate, ProductList } from './products';
+import {
+    ProductCreate,
+    ProductEdit,
+    ProductList,
+} from './products';
 
 const i18nProvider = locale => messages[locale];
 
@@ -55,7 +59,7 @@ const App = () => (
             name="products"
             list={ProductList}
             create={ProductCreate}
-            edit={EditGuesser}
+            edit={ProductEdit}
         />
         <Resource
             name="categories"
