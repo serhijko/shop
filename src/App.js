@@ -1,5 +1,5 @@
 import React from 'react';
-import { Admin, Resource, ListGuesser, EditGuesser } from 'react-admin';
+import { Admin, Resource } from 'react-admin';
 
 import './App.css';
 
@@ -27,6 +27,7 @@ import {
     ProductList,
 } from './products';
 import { CategoryEdit, CategoryIcon, CategoryList } from './categories';
+import { ReviewEdit, ReviewIcon, ReviewList } from './reviews';
 
 const i18nProvider = locale => messages[locale];
 
@@ -72,7 +73,9 @@ const App = () => (
         />
         <Resource
             name="reviews"
-            list={ListGuesser}
+            list={ReviewList}
+            edit={ReviewEdit}
+            icon={ReviewIcon}
         />
     </Admin>
 );
