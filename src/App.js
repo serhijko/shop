@@ -26,6 +26,7 @@ import {
     ProductIcon,
     ProductList,
 } from './products';
+import { CategoryEdit, CategoryIcon, CategoryList } from './categories';
 
 const i18nProvider = locale => messages[locale];
 
@@ -65,7 +66,9 @@ const App = () => (
         />
         <Resource
             name="categories"
-            list={ListGuesser}
+            list={CategoryList}
+            edit={CategoryEdit}
+            icon={CategoryIcon}
         />
         <Resource
             name="reviews"

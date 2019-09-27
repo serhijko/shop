@@ -90,6 +90,9 @@ export default {
         },
         categories: {
             name: 'Category |||| Categories',
+            fields: {
+                products: 'Products',
+            },
         },
         reviews: {
             name: 'Review |||| Reviews',

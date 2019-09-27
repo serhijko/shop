@@ -104,6 +104,10 @@ export default {
         },
         categories: {
             name: 'Catégorie |||| Catégories',
+            fields: {
+                name: 'Nom',
+                products: 'Produits',
+            },
         },
         reviews: {
             name: 'Commentaire |||| Commentaires',
