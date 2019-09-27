@@ -23,6 +23,7 @@ import { CommandEdit, CommandIcon, CommandList } from './commands';
 import {
     ProductCreate,
     ProductEdit,
+    ProductIcon,
     ProductList,
 } from './products';
 
@@ -60,6 +61,7 @@ const App = () => (
             list={ProductList}
             create={ProductCreate}
             edit={ProductEdit}
+            icon={ProductIcon}
         />
         <Resource
             name="categories"
