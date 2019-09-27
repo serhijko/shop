@@ -66,6 +66,14 @@ export default {
         },
         products: {
             name: 'Poster |||| Posters',
+            fields: {
+                category_id: 'Category',
+                height_gte: 'Min height',
+                height_lte: 'Max height',
+                stock_lte: 'Low Stock',
+                width_gte: 'Min width',
+                width_lte: 'Max width',
+            },
         },
         categories: {
             name: 'Category |||| Categories',

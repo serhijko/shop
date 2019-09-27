@@ -20,6 +20,7 @@ import {
     VisitorList,
 } from './visitors';
 import { CommandEdit, CommandIcon, CommandList } from './commands';
+import { ProductList } from './products';
 
 const i18nProvider = locale => messages[locale];
 
@@ -52,7 +53,7 @@ const App = () => (
         />
         <Resource
             name="products"
-            list={ListGuesser}
+            list={ProductList}
         />
         <Resource
             name="categories"
