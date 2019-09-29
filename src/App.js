@@ -29,7 +29,7 @@ import { CategoryEdit, CategoryIcon, CategoryList } from './categories';
 import { ReviewEdit, ReviewIcon, ReviewList } from './reviews';
 
 import dataProvider from './dataProvider';
-import fakeRestServer from './restServer';
+import fakeRestServer from './fakeServer';
 
 const i18nProvider = locale => messages[locale];
 
