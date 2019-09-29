@@ -1,7 +1,7 @@
-import fakeDataProvider from 'ra-data-fakerest';
+import simpleRestProvider from 'ra-data-simple-rest';
 
-import data from '../data';
-
-const dataProvider = fakeDataProvider(data);
-
-export default dataProvider;
+const restProvider = simpleRestProvider('http://localhost:4000');
+export default (type, resource, params) =>
+    new Promise(resolve =>
+        setTimeout(() => resolve(restProvider(type, resource, params)), 500)
+    );

@@ -24,7 +24,7 @@ const getGqlResource = resource => {
             return 'Invoice';
 
         default:
-            return new Error(`Unknown resource ${resource}`);
+            throw new Error(`Unknown resource ${resource}`);
     }
 };
 
