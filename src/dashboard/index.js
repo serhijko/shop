@@ -1,3 +1,3 @@
-import DashboardContent from './Dashboard';
+import DashboardComponent from './Dashboard';
 
-export const Dashboard = DashboardContent;
+export const Dashboard = DashboardComponent;

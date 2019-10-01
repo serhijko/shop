@@ -1,14 +1,13 @@
 import React from 'react';
 import compose from 'recompose/compose';
-import { Card, CardHeader } from '@material-ui/core';
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
 import List from '@material-ui/core/List';
-import {
-    ListItem,
-    ListItemSecondaryAction,
-    ListItemText,
-} from '@material-ui/core';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
-import { withStyles } from '@material-ui/core/es/styles';
+import { withStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import { translate } from 'react-admin';
 
@@ -17,13 +16,10 @@ const style = theme => ({
         flex: 1,
     },
     avatar: {
-        background: theme.palette.background.contentFrame,
+        background: theme.palette.background.avatar,
     },
     cost: {
         marginRight: '1em',
-        position: 'absolute',
-        top: '1em',
-        right: 0,
         color: theme.palette.text.primary,
     },
 });
@@ -42,8 +38,9 @@ const PendingOrders = ({ orders = [], customers = {}, translate, classes }) => (
                     {customers[record.customer_id] ? (
                         <Avatar
                             className={classes.avatar}
-                            src={`${customers[record.customer_id]
-                                .avatar}?size=32x32`}
+                            src={`${
+                                customers[record.customer_id].avatar
+                            }?size=32x32`}
                         />
                     ) : (
                         <Avatar />
@@ -54,10 +51,9 @@ const PendingOrders = ({ orders = [], customers = {}, translate, classes }) => (
                             smart_count: record.basket.length,
                             nb_items: record.basket.length,
                             customer_name: customers[record.customer_id]
-                                ? `${customers[record.customer_id]
-                                    .first_name} ${customers[
-                                        record.customer_id
-                                    ].last_name}`
+                                ? `${
+                                        customers[record.customer_id].first_name
+                                    } ${customers[record.customer_id].last_name}`
                                 : '',
                         })}
                     />
@@ -70,6 +66,9 @@ const PendingOrders = ({ orders = [], customers = {}, translate, classes }) => (
     </Card>
 );
 
-const enhance = compose(withStyles(style), translate);
+const enhance = compose(
+    withStyles(style),
+    translate
+);
 
 export default enhance(PendingOrders);

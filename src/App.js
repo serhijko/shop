@@ -12,12 +12,12 @@ import Menu from './Menu';
 import { Dashboard } from './dashboard';
 import customRoutes from './routes';
 import messages from './i18n';
+
 import {
     VisitorEdit,
     VisitorIcon,
     VisitorList,
 } from './visitors';
-
 import { CommandEdit, CommandIcon, CommandList } from './commands';
 import {
     ProductCreate,
@@ -65,7 +65,7 @@ class App extends Component {
 
         return (
             <Admin
-                title="Posters Galore Admin"
+                title=""
                 dataProvider={dataProvider}
                 customReducers={{ theme: themeReducer }}
                 customSagas={sagas}
