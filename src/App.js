@@ -13,11 +13,7 @@ import { Dashboard } from './dashboard';
 import customRoutes from './routes';
 import messages from './i18n';
 
-import {
-    VisitorEdit,
-    VisitorIcon,
-    VisitorList,
-} from './visitors';
+import visitors from './visitors';
 import { CommandEdit, CommandIcon, CommandList } from './commands';
 import {
     ProductCreate,
@@ -78,12 +74,7 @@ class App extends Component {
                 locale="en"
                 i18nProvider={i18nProvider}
             >
-                <Resource
-                    name="customers"
-                    list={VisitorList}
-                    edit={VisitorEdit}
-                    icon={VisitorIcon}
-                />
+                <Resource name="customers" {...visitors} />
                 <Resource
                     name="commands"
                     list={CommandList}
