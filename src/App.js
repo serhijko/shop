@@ -14,7 +14,7 @@ import customRoutes from './routes';
 import messages from './i18n';
 
 import visitors from './visitors';
-import { CommandEdit, CommandIcon, CommandList } from './commands';
+import orders from './orders';
 import {
     ProductCreate,
     ProductEdit,
@@ -77,9 +77,7 @@ class App extends Component {
                 <Resource name="customers" {...visitors} />
                 <Resource
                     name="commands"
-                    list={CommandList}
-                    edit={CommandEdit}
-                    icon={CommandIcon}
+                    {...orders}
                     options={{ label: 'Orders' }}
                 />
                 <Resource
