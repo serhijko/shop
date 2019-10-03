@@ -5,14 +5,14 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import LabelIcon from '@material-ui/icons/Label';
 import { translate, DashboardMenuItem, MenuItemLink } from 'react-admin';
 
-import { VisitorIcon } from './visitors';
+import visitors from './visitors';
 import { CommandIcon } from './commands';
 import { ProductIcon } from './products';
 import { CategoryIcon } from './categories';
 import { ReviewIcon } from './reviews'; import LocaleSwitcher from './configuration/LocaleSwitcher';
 
 const items = [
-    { name: 'customers', icon: <VisitorIcon /> },
+    { name: 'customers', icon: <visitors.icon /> },
     { name: 'segments', icon: <LabelIcon /> },
     { name: 'commands', icon: <CommandIcon /> },
     { name: 'products', icon: <ProductIcon /> },

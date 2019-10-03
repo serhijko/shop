@@ -1,10 +1,8 @@
 import React from 'react';
 import {
-
     Datagrid,
     DateField,
     DateInput,
-
     Edit,
     EditButton,
     FormTab,
@@ -16,50 +14,51 @@ import {
     TextField,
     TextInput,
 } from 'react-admin';
-import FullNameField from './FullNameField';
+import withStyles from '@material-ui/core/styles/withStyles';
+
 import NbItemsField from '../commands/NbItemsField';
 import ProductReferenceField from '../products/ProductReferenceField';
 import StarRatingField from '../reviews/StarRatingField';
+import FullNameField from './FullNameField';
 import SegmentsInput from './SegmentsInput';
+import { styles } from './VisitorCreate';
 
 const VisitorTitle = ({ record }) =>
     record ? <FullNameField record={record} size={32} /> : null;
 
-const VisitorEdit = props => (
+const VisitorEdit = ({ classes, ...props }) => (
     <Edit title={<VisitorTitle />} {...props}>
         <TabbedForm>
             <FormTab label="resources.customers.tabs.identity">
                 <TextInput
                     source="first_name"
-                    style={{ display: 'inline-block' }}
+                    formClassName={classes.first_name}
                 />
                 <TextInput
                     source="last_name"
-                    style={{ display: 'inline-block', marginLeft: 32 }}
+                    formClassName={classes.last_name}
                 />
                 <TextInput
                     type="email"
                     source="email"
                     validation={{ email: true }}
-                    options={{ fullWidth: true }}
-                    style={{ width: 544 }}
+                    fullWidth={true}
+                    formClassName={classes.email}
                 />
                 <DateInput source="birthday" />
             </FormTab>
-            <FormTab label="resources.customers.tabs.address">
-                <LongTextInput source="address" style={{ maxWidth: 544 }} />
-                <TextInput
-                    source="zipcode"
-                    style={{ display: 'inline-block' }}
+            <FormTab label="resources.customers.tabs.address" path="address">
+                <LongTextInput
+                    source="address"
+                    formClassName={classes.address}
                 />
-                <TextInput
-                    source="city"
-                    style={{ display: 'inline-block', marginLeft: 32 }}
-                />
+                <TextInput source="zipcode" formClassName={classes.zipcode} />
+                <TextInput source="city" formClassName={classes.city} />
             </FormTab>
-            <FormTab label="resources.customers.tabs.orders">
+            <FormTab label="resources.customers.tabs.orders" path="orders">
                 <ReferenceManyField
                     addLabel={false}
+                    sort={{ field: 'date', order: 'DESC' }}
                     reference="commands"
                     target="customer_id"
                 >
@@ -76,9 +75,10 @@ const VisitorEdit = props => (
                     </Datagrid>
                 </ReferenceManyField>
             </FormTab>
-            <FormTab label="resources.customers.tabs.reviews">
+            <FormTab label="resources.customers.tabs.reviews" path="reviews">
                 <ReferenceManyField
                     addLabel={false}
+                    sort={{ field: 'date', order: 'DESC' }}
                     reference="reviews"
                     target="customer_id"
                 >
@@ -88,18 +88,13 @@ const VisitorEdit = props => (
                         <StarRatingField />
                         <TextField
                             source="comment"
-                            style={{
-                                maxWidth: '20em',
-                                overflow: 'hidden',
-                                textOverflow: 'ellipsis',
-                                whiteSpace: 'nowrap',
-                            }}
+                            cellClassName={classes.comment}
                         />
                         <EditButton style={{ padding: 0 }} />
                     </Datagrid>
                 </ReferenceManyField>
             </FormTab>
-            <FormTab label="resources.customers.tabs.stats">
+            <FormTab label="resources.customers.tabs.stats" path="stats">
                 <SegmentsInput />
                 <NullableBooleanInput source="has_newsletter" />
                 <DateField
@@ -119,4 +114,4 @@ const VisitorEdit = props => (
     </Edit>
 );
 
-export default VisitorEdit;
+export default withStyles(styles)(VisitorEdit);

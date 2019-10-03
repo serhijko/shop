@@ -6,7 +6,7 @@ import { Link } from 'react-admin';
 import { translate } from 'react-admin';
 import { stringify } from 'querystring';
 
-import { VisitorIcon } from '../visitors';
+import visitors from '../visitors';
 
 const styles = {
     icon: { paddingRight: '0.5em' },
@@ -29,7 +29,7 @@ const LinkToRelatedCustomers = ({ classes, segment, translate }) => (
             }}
             className={classes.link}
         >
-            <VisitorIcon className={classes.icon} />
+            <visitors.icon className={classes.icon} />
             {translate('resources.segments.fields.customers')}
         </Link>
     </Button>

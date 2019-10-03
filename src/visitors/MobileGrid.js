@@ -50,7 +50,7 @@ const MobileGrid = ({ classes, ids, data, basePath, translate }) => (
                     }
                     avatar={<AvatarField record={data[id]} size="45" />}
                 />
-                <CardContent>
+                <CardContent className={classes.cardContent}>
                     <div>
                         {translate('resources.customers.fields.last_seen_gte')}
                         &nbsp;
