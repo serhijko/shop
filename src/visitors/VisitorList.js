@@ -18,6 +18,7 @@ import SegmentsField from './SegmentsField';
 import SegmentInput from './SegmentInput';
 import CustomerLinkField from './CustomerLinkField';
 import ColoredNumberField from './ColoredNumberField';
+import MobileGrid from './MobileGrid';
 
 const VisitorFilter = props => (
     <Filter {...props}>
@@ -41,6 +42,7 @@ const VisitorList = ({ classes, ...props }) => (
         perPage={25}
     >
         <Responsive
+            xsmall={<MobileGrid />}
             medium={
                 <Datagrid>
                     <CustomerLinkField />
