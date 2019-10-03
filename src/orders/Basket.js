@@ -1,28 +1,40 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableRow,
-} from '@material-ui/core';
+import classnames from 'classnames';
+
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import { translate, crudGetMany as crudGetManyAction } from 'react-admin';
+import { Link, translate, crudGetMany as crudGetManyAction } from 'react-admin';
 import compose from 'recompose/compose';
+import withStyles from '@material-ui/core/styles/withStyles';
+
+const styles = {
+    container: { minWidth: '35em', marginLeft: '1em' },
+    rightAlignedCell: { textAlign: 'right' },
+    boldCell: { fontWeight: 'bold' },
+};
 
 class Basket extends Component {
     componentDidMount() {
         this.fetchData();
     }
     fetchData() {
-        const { record: { basket }, crudGetMany } = this.props;
+        const {
+            record: { basket },
+            crudGetMany,
+        } = this.props;
         crudGetMany('products', basket.map(item => item.product_id));
     }
     render() {
-        const { record, products, translate } = this.props;
+        const { classes, record, products, translate } = this.props;
+        if (!record) return null;
         const { basket } = record;
         return (
-            <Paper style={{ width: '42em', float: 'right', zIndex: 2 }}>
+            <Paper className={classes.container}>
                 <Table>
                     <TableHead>
                         <TableRow>
@@ -31,17 +43,17 @@ class Basket extends Component {
                                     'resources.commands.fields.basket.reference'
                                 )}
                             </TableCell>
-                            <TableCell style={{ textAlign: 'right' }}>
+                            <TableCell className={classes.rightAlignedCell}>
                                 {translate(
                                     'resources.commands.fields.basket.unit_price'
                                 )}
                             </TableCell>
-                            <TableCell style={{ textAlign: 'right' }}>
+                            <TableCell className={classes.rightAlignedCell}>
                                 {translate(
                                     'resources.commands.fields.basket.quantity'
                                 )}
                             </TableCell>
-                            <TableCell style={{ textAlign: 'right' }}>
+                            <TableCell className={classes.rightAlignedCell}>
                                 {translate(
                                     'resources.commands.fields.basket.total'
                                 )}
@@ -54,13 +66,19 @@ class Basket extends Component {
                                 products[item.product_id] && (
                                     <TableRow key={item.product_id}>
                                         <TableCell>
-                                            {
-                                                products[item.product_id]
-                                                    .reference
-                                            }
+                                            <Link
+                                                to={`/products/${
+                                                    item.product_id
+                                                }`}
+                                            >
+                                                {
+                                                    products[item.product_id]
+                                                        .reference
+                                                }
+                                            </Link>
                                         </TableCell>
                                         <TableCell
-                                            style={{ textAlign: 'right' }}
+                                            className={classes.rightAlignedCell}
                                         >
                                             {products[
                                                 item.product_id
@@ -70,15 +88,16 @@ class Basket extends Component {
                                             })}
                                         </TableCell>
                                         <TableCell
-                                            style={{ textAlign: 'right' }}
+                                            className={classes.rightAlignedCell}
                                         >
                                             {item.quantity}
                                         </TableCell>
                                         <TableCell
-                                            style={{ textAlign: 'right' }}
+                                            className={classes.rightAlignedCell}
                                         >
-                                            {(products[item.product_id].price *
-                                                item.quantity
+                                            {(
+                                                products[item.product_id]
+                                                    .price * item.quantity
                                             ).toLocaleString(undefined, {
                                                 style: 'currency',
                                                 currency: 'USD',
@@ -94,10 +113,13 @@ class Basket extends Component {
                                     'resources.commands.fields.basket.sum'
                                 )}
                             </TableCell>
-                            <TableCell style={{ textAlign: 'right' }}>
+                            <TableCell className={classes.rightAlignedCell}>
                                 {record.total_ex_taxes.toLocaleString(
                                     undefined,
-                                    { style: 'currency', currency: 'USD' }
+                                    {
+                                        style: 'currency',
+                                        currency: 'USD',
+                                    }
                                 )}
                             </TableCell>
                         </TableRow>
@@ -108,7 +130,7 @@ class Basket extends Component {
                                     'resources.commands.fields.basket.delivery'
                                 )}
                             </TableCell>
-                            <TableCell style={{ textAlign: 'right' }}>
+                            <TableCell className={classes.rightAlignedCell}>
                                 {record.delivery_fees.toLocaleString(
                                     undefined,
                                     { style: 'currency', currency: 'USD' }
@@ -122,7 +144,7 @@ class Basket extends Component {
                                     'resources.commands.fields.basket.tax_rate'
                                 )}
                             </TableCell>
-                            <TableCell style={{ textAlign: 'right' }}>
+                            <TableCell className={classes.rightAlignedCell}>
                                 {record.tax_rate.toLocaleString(undefined, {
                                     style: 'percent',
                                 })}
@@ -130,16 +152,16 @@ class Basket extends Component {
                         </TableRow>
                         <TableRow>
                             <TableCell colSpan={2} />
-                            <TableCell style={{ fontWeight: 'bold' }}>
+                            <TableCell className={classes.boldCell}>
                                 {translate(
                                     'resources.commands.fields.basket.total'
                                 )}
                             </TableCell>
                             <TableCell
-                                style={{
-                                    textAlign: 'right',
-                                    fontWeight: 'bold',
-                                }}
+                                className={classnames(
+                                    classes.boldCell,
+                                    classes.rightAlignedCell
+                                )}
                             >
                                 {record.total.toLocaleString(undefined, {
                                     style: 'currency',
@@ -155,7 +177,9 @@ class Basket extends Component {
 }
 
 const mapStateToProps = (state, props) => {
-    const { record: { basket } } = props;
+    const {
+        record: { basket },
+    } = props;
     const productIds = basket.map(item => item.product_id);
     return {
         products: productIds
@@ -170,9 +194,13 @@ const mapStateToProps = (state, props) => {
 
 const enhance = compose(
     translate,
-    connect(mapStateToProps, {
-        crudGetMany: crudGetManyAction,
-    })
+    withStyles(styles),
+    connect(
+        mapStateToProps,
+        {
+            crudGetMany: crudGetManyAction,
+        }
+    )
 );
 
 export default enhance(Basket);

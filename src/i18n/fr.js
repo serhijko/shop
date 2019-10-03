@@ -26,6 +26,12 @@ export default {
                 demo_button: 'Code source de cette démo',
             },
         },
+        status: {
+            delivered: 'livré',
+            ordered: 'commandé',
+            cancelled: 'annulé',
+            unknown: 'inconnu',
+        },
     },
     resources: {
         customers: {
@@ -58,6 +64,7 @@ export default {
         },
         commands: {
             name: 'Commande |||| Commandes',
+            title: 'Commande n°%{reference}',
             fields: {
                 basket: {
                     delivery: 'Frais de livraison',
@@ -69,8 +76,8 @@ export default {
                     unit_price: 'P.U.',
                 },
                 customer_id: 'Client',
-                date_gte: 'Passées depuis',
-                date_lte: 'Passées avant',
+                date_gte: 'Emises depuis',
+                date_lte: 'Emises avant',
                 nb_items: 'Nb articles',
                 reference: 'Référence',
                 returned: 'Annulée',

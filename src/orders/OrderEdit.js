@@ -9,19 +9,23 @@ import {
     SelectInput,
     SimpleForm,
 } from 'react-admin';
+import withStyles from '@material-ui/core/styles/withStyles';
 
 import Basket from './Basket';
 
 const OrderTitle = translate(({ record, translate }) => (
     <span>
-        {translate('resources.commands.name', { smart_count: 1 })} #{record.reference}
+        {translate('resources.commands.title', { reference: record.reference })}
     </span>
 ));
 
-const OrderEdit = translate(({ translate, ...rest }) => (
-    <Edit title={<OrderTitle />} {...rest}>
+const editStyles = {
+    root: { alignItems: 'flex-start' },
+};
+
+const OrderEdit = translate(({ translate, ...props }) => (
+    <Edit title={<OrderTitle />} aside={<Basket />} {...props}>
         <SimpleForm>
-            <Basket />
             <DateInput source="date" />
             <ReferenceInput source="customer_id" reference="customers">
                 <AutocompleteInput
@@ -32,15 +36,19 @@ const OrderEdit = translate(({ translate, ...rest }) => (
             <SelectInput
                 source="status"
                 choices={[
-                    { id: 'delivered', name: 'delivered' },
-                    { id: 'ordered', name: 'ordered' },
-                    { id: 'cancelled', name: 'cancelled' },
+                    { id: 'delivered', name: translate('pos.status.delivered') },
+                    { id: 'ordered', name: translate('pos.status.ordered') },
+                    { id: 'cancelled', name: translate('pos.status.cancelled') },
+                    {
+                        id: 'unknown',
+                        name: translate('pos.status.unknown'),
+                        disabled: true,
+                    },
                 ]}
             />
             <BooleanInput source="returned" />
-            <div style={{ clear: 'both' }} />
         </SimpleForm>
     </Edit>
 ));
 
-export default OrderEdit;
+export default withStyles(editStyles)(OrderEdit);

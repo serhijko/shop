@@ -26,6 +26,12 @@ export default {
                 demo_button: 'Source for this demo',
             },
         },
+        status: {
+            delivered: 'delivered',
+            ordered: 'ordered',
+            cancelled: 'cancelled',
+            unknown: 'unknown',
+        },
     },
     resources: {
         customers: {
@@ -47,6 +53,7 @@ export default {
         },
         commands: {
             name: 'Order |||| Orders',
+            title: 'Order %{reference}',
             fields: {
                 basket: {
                     delivery: 'Delivery',
@@ -62,6 +69,8 @@ export default {
                 date_lte: 'Passed Before',
                 nb_items: 'Nb Items',
                 total_gte: 'Min amount',
+                status: 'Status',
+                returned: 'Returned',
             },
         },
         products: {
