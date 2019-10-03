@@ -24,7 +24,7 @@ import { compose } from 'recompose';
 
 import NbItemsField from './NbItemsField';
 import CustomerReferenceField from '../visitors/CustomerReferenceField';
-
+import MobileGrid from './MobileGrid';
 
 
 
@@ -92,6 +92,12 @@ class TabbedDatagrid extends React.Component {
                 </Tabs>
                 <Divider />
                 <Responsive
+                    xsmall={
+                        <MobileGrid
+                            {...props}
+                            ids={this.state[filterValues.status]}
+                        />
+                    }
                     medium={
                         <div>
                             {filterValues.status === 'ordered' && (
