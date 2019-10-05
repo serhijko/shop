@@ -16,7 +16,7 @@ import messages from './i18n';
 import visitors from './visitors';
 import orders from './orders';
 import products from './products';
-import { CategoryEdit, CategoryIcon, CategoryList } from './categories';
+import categories from './categories';
 import { ReviewEdit, ReviewIcon, ReviewList } from './reviews';
 
 import dataProviderFactory from './dataProvider';
@@ -76,12 +76,7 @@ class App extends Component {
                     options={{ label: 'Orders' }}
                 />
                 <Resource name="products" {...products} />
-                <Resource
-                    name="categories"
-                    list={CategoryList}
-                    edit={CategoryEdit}
-                    icon={CategoryIcon}
-                />
+                <Resource name="categories" {...categories} />
                 <Resource
                     name="reviews"
                     list={ReviewList}
