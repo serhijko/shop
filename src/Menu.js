@@ -9,7 +9,7 @@ import visitors from './visitors';
 import orders from './orders';
 import products from './products';
 import categories from './categories';
-import { ReviewIcon } from './reviews'; import LocaleSwitcher from './configuration/LocaleSwitcher';
+import reviews from './reviews'; import LocaleSwitcher from './configuration/LocaleSwitcher';
 
 const items = [
     { name: 'customers', icon: <visitors.icon /> },
@@ -17,7 +17,7 @@ const items = [
     { name: 'commands', icon: <orders.icon /> },
     { name: 'products', icon: <products.icon /> },
     { name: 'categories', icon: <categories.icon /> },
-    { name: 'reviews', icon: <ReviewIcon /> },
+    { name: 'reviews', icon: <reviews.icon /> },
 ];
 
 const styles = {

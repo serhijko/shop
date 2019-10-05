@@ -105,6 +105,7 @@ export default {
         },
         reviews: {
             name: 'Review |||| Reviews',
+            detail: 'Review detail',
             fields: {
                 customer_id: 'Customer',
                 command_id: 'Order',

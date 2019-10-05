@@ -118,6 +118,7 @@ export default {
         },
         reviews: {
             name: 'Commentaire |||| Commentaires',
+            detail: 'Détail du commentaire',
             fields: {
                 customer_id: 'Client',
                 command_id: 'Commande',
@@ -131,7 +132,7 @@ export default {
             },
             action: {
                 accept: 'Accepter',
-                reject: 'Rejecter',
+                reject: 'Rejeter',
             },
             notification: {
                 approved_success: 'Commentaire approuvé',

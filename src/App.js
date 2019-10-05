@@ -17,7 +17,7 @@ import visitors from './visitors';
 import orders from './orders';
 import products from './products';
 import categories from './categories';
-import { ReviewEdit, ReviewIcon, ReviewList } from './reviews';
+import reviews from './reviews';
 
 import dataProviderFactory from './dataProvider';
 import fakeServerFactory from './fakeServer';
@@ -77,12 +77,7 @@ class App extends Component {
                 />
                 <Resource name="products" {...products} />
                 <Resource name="categories" {...categories} />
-                <Resource
-                    name="reviews"
-                    list={ReviewList}
-                    edit={ReviewEdit}
-                    icon={ReviewIcon}
-                />
+                <Resource name="reviews" {...reviews} />
             </Admin>
         );
     }
