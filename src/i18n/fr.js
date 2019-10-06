@@ -26,12 +26,6 @@ export default {
                 demo_button: 'Code source de cette démo',
             },
         },
-        status: {
-            delivered: 'livré',
-            ordered: 'commandé',
-            cancelled: 'annulé',
-            unknown: 'inconnu',
-        },
     },
     resources: {
         customers: {
@@ -83,6 +77,12 @@ export default {
                 returned: 'Annulée',
                 status: 'Etat',
                 total_gte: 'Montant minimum',
+            },
+            status_choices: {
+                delivered: 'livré',
+                ordered: 'commandé',
+                cancelled: 'annulé',
+                unknown: 'inconnu',
             },
         },
         products: {

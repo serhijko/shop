@@ -36,12 +36,12 @@ const OrderEdit = translate(({ translate, ...props }) => (
             <SelectInput
                 source="status"
                 choices={[
-                    { id: 'delivered', name: translate('pos.status.delivered') },
-                    { id: 'ordered', name: translate('pos.status.ordered') },
-                    { id: 'cancelled', name: translate('pos.status.cancelled') },
+                    { id: 'delivered', name: translate('resources.commands.status_choices.delivered') },
+                    { id: 'ordered', name: translate('resources.commands.status_choices.ordered') },
+                    { id: 'cancelled', name: translate('resources.commands.status_choices.cancelled') },
                     {
                         id: 'unknown',
-                        name: translate('pos.status.unknown'),
+                        name: translate('resources.commands.status_choices.unknown'),
                         disabled: true,
                     },
                 ]}

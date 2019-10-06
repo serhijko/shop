@@ -52,9 +52,9 @@ const datagridStyles = {
 
 class TabbedDatagrid extends React.Component {
     tabs = [
-        { id: 'ordered', name: 'pos.status.ordered' },
-        { id: 'delivered', name: 'pos.status.delivered' },
-        { id: 'cancelled', name: 'pos.status.cancelled' },
+        { id: 'ordered', name: 'resources.commands.status_choices.ordered' },
+        { id: 'delivered', name: 'resources.commands.status_choices.delivered' },
+        { id: 'cancelled', name: 'resources.commands.status_choices.cancelled' },
     ];
 
     state = { ordered: [], delivered: [], cancelled: [] };

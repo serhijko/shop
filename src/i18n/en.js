@@ -26,12 +26,6 @@ export default {
                 demo_button: 'Source for this demo',
             },
         },
-        status: {
-            delivered: 'delivered',
-            ordered: 'ordered',
-            cancelled: 'cancelled',
-            unknown: 'unknown',
-        },
     },
     resources: {
         customers: {
@@ -71,6 +65,12 @@ export default {
                 total_gte: 'Min amount',
                 status: 'Status',
                 returned: 'Returned',
+            },
+            status_choices: {
+                delivered: 'delivered',
+                ordered: 'ordered',
+                cancelled: 'cancelled',
+                unknown: 'unknown',
             },
         },
         products: {
