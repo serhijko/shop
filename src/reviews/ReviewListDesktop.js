@@ -1,5 +1,5 @@
 import React from 'react';
-import { Datagrid, DateField, TextField } from 'react-admin';
+import { Datagrid, DateField, SelectField, TextField, translate } from 'react-admin';
 import withStyles from '@material-ui/core/styles/withStyles';
 
 import ProductReferenceField from '../products/ProductReferenceField';
@@ -22,7 +22,7 @@ const listStyles = {
     },
 };
 
-const ReviewListDesktop = ({ classes, ...props }) => (
+const ReviewListDesktop = translate(({ classes, translate, ...props }) => (
     <Datagrid
         rowClick="edit"
         rowStyle={rowStyle}
@@ -34,8 +34,12 @@ const ReviewListDesktop = ({ classes, ...props }) => (
         <ProductReferenceField linkType={false} />
         <StarRatingField />
         <TextField source="comment" cellClassName={classes.comment} />
-        <TextField source="status" />
+        <SelectField source="status" choices={[
+            { id: 'accepted', name: translate('resources.reviews.status_choices.accepted') },
+            { id: 'pending', name: translate('resources.reviews.status_choices.pending') },
+            { id: 'rejected', name: translate('resources.reviews.status_choices.rejected') },
+        ]} />
     </Datagrid>
-);
+));
 
 export default withStyles(listStyles)(ReviewListDesktop);

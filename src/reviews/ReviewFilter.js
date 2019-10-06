@@ -1,5 +1,5 @@
 import React from 'react';
-import {
+import { translate,
     AutocompleteInput,
     DateInput,
     Filter,
@@ -13,15 +13,15 @@ const filterStyles = {
     status: { width: 150 },
 };
 
-const ReviewFilter = ({ classes, ...props }) => (
+const ReviewFilter = translate(({ classes, translate, ...props }) => (
     <Filter {...props}>
         <SearchInput source="q" alwaysOn />
         <SelectInput
             source="status"
             choices={[
-                { id: 'accepted', name: 'Accepted' },
-                { id: 'pending', name: 'Pending' },
-                { id: 'rejected', name: 'Rejected' },
+                { id: 'accepted', name: translate('resources.reviews.status_choices.accepted') },
+                { id: 'pending', name: translate('resources.reviews.status_choices.pending') },
+                { id: 'rejected', name: translate('resources.reviews.status_choices.rejected') },
             ]}
             className={classes.status}
         />
@@ -38,6 +38,6 @@ const ReviewFilter = ({ classes, ...props }) => (
         <DateInput source="date_gte" />
         <DateInput source="date_lte" />
     </Filter>
-);
+));
 
 export default withStyles(filterStyles)(ReviewFilter);

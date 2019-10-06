@@ -140,6 +140,11 @@ export default {
                 rejected_success: 'Commentaire rejeté',
                 rejected_error: 'Erreur: Commentaire non rejeté',
             },
+            status_choices: {
+                accepted: 'Accepté',
+                pending: 'An attente',
+                rejected: 'Rejeté',
+            },
         },
         segments: {
             name: 'Segments',

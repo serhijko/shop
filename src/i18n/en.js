@@ -126,6 +126,11 @@ export default {
                 rejected_success: 'Review rejected',
                 rejected_error: 'Error: Review not rejected',
             },
+            status_choices: {
+                accepted: 'Accepted',
+                pending: 'Pending',
+                rejected: 'Rejected',
+            },
         },
         segments: {
             name: 'Segments',
