@@ -26,6 +26,11 @@ export default {
                 demo_button: 'Source for this demo',
             },
         },
+        menu: {
+            sales: 'Sales',
+            catalog: 'Catalog',
+            customers: 'Customers',
+        },
     },
     resources: {
         customers: {
