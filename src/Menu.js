@@ -7,6 +7,7 @@ import { translate, DashboardMenuItem, MenuItemLink } from 'react-admin';
 
 import visitors from './visitors';
 import orders from './orders';
+import invoices from './invoices';
 import products from './products';
 import categories from './categories';
 import reviews from './reviews'; import LocaleSwitcher from './configuration/LocaleSwitcher';
@@ -15,6 +16,7 @@ const items = [
     { name: 'customers', icon: <visitors.icon /> },
     { name: 'segments', icon: <LabelIcon /> },
     { name: 'commands', icon: <orders.icon /> },
+    { name: 'invoices', icon: <invoices.icon /> },
     { name: 'products', icon: <products.icon /> },
     { name: 'categories', icon: <categories.icon /> },
     { name: 'reviews', icon: <reviews.icon /> },

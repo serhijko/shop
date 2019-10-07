@@ -16,6 +16,7 @@ import messages from './i18n';
 import visitors from './visitors';
 import orders from './orders';
 import products from './products';
+import invoices from './invoices';
 import categories from './categories';
 import reviews from './reviews';
 
@@ -75,6 +76,7 @@ class App extends Component {
                     {...orders}
                     options={{ label: 'Orders' }}
                 />
+                <Resource name="invoices" {...invoices} />
                 <Resource name="products" {...products} />
                 <Resource name="categories" {...categories} />
                 <Resource name="reviews" {...reviews} />

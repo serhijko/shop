@@ -85,6 +85,21 @@ export default {
                 unknown: 'inconnu',
             },
         },
+        invoices: {
+            name: 'Facture |||| Factures',
+            fields: {
+                id: 'Numéro',
+                date: 'Date de facture',
+                customer_id: 'Client',
+                command_id: 'Commande',
+                date_gte: 'Emises depuis',
+                date_lte: 'Emises avant',
+                address: 'Adresse',
+                total_ex_taxes: 'Montant HT',
+                delivery_fees: 'Frais de livraison',
+                taxes: 'TVA',
+            },
+        },
         products: {
             name: 'Poster |||| Posters',
             fields: {
