@@ -3,7 +3,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import { ShowController, ReferenceField, TextField } from 'react-admin';
+import { ShowController, ReferenceField, TextField, translate } from 'react-admin';
 
 import Basket from '../orders/Basket';
 
@@ -17,7 +17,7 @@ const CustomerField = ({ record }) => (
     </Typography>
 );
 
-const InvoiceShow = props => (
+const InvoiceShow = translate(({ translate, ...props }) => (
     <ShowController {...props} title=" ">
         {({ record }) =>
             record && (
@@ -35,7 +35,7 @@ const InvoiceShow = props => (
                                     gutterBottom
                                     align="right"
                                 >
-                                    Invoice {record.id}
+                                    {translate('resources.invoices.name', { smart_count: 1 })} {record.id}
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -74,7 +74,7 @@ const InvoiceShow = props => (
                                     gutterBottom
                                     align="center"
                                 >
-                                    Order
+                                    {translate('resources.commands.name', { smart_count: 1 })}
                                 </Typography>
                                 <Typography gutterBottom align="center">
                                     <ReferenceField
@@ -107,6 +107,6 @@ const InvoiceShow = props => (
             )
         }
     </ShowController>
-);
+));
 
 export default InvoiceShow;
