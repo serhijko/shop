@@ -32,18 +32,18 @@ class Menu extends Component {
         logout: PropTypes.object,
     };
 
-    handeToggle = menu => {
+    handleToggle = menu => {
         this.setState(state => ({ [menu]: !state[menu] }));
     };
 
     render() {
-        const { onMenuClick, open, translate, logout } = this.props;
+        const { onMenuClick, open, logout, translate } = this.props;
         return (
             <div>
                 {' '}
                 <DashboardMenuItem onClick={onMenuClick} />
                 <SubMenu
-                    handleToggle={() => this.handeToggle('menuSales')}
+                    handleToggle={() => this.handleToggle('menuSales')}
                     isOpen={this.state.menuSales}
                     sidebarIsOpen={open}
                     name="pos.menu.sales"
@@ -67,7 +67,7 @@ class Menu extends Component {
                     />
                 </SubMenu>
                 <SubMenu
-                    handleToggle={() => this.handeToggle('menuCatalog')}
+                    handleToggle={() => this.handleToggle('menuCatalog')}
                     isOpen={this.state.menuCatalog}
                     sidebarIsOpen={open}
                     name="pos.menu.catalog"
@@ -91,7 +91,7 @@ class Menu extends Component {
                     />
                 </SubMenu>
                 <SubMenu
-                    handleToggle={() => this.handeToggle('menuCustomer')}
+                    handleToggle={() => this.handleToggle('menuCustomer')}
                     isOpen={this.state.menuCustomer}
                     sidebarIsOpen={open}
                     name="pos.menu.customers"
