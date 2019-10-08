@@ -2,13 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Layout, Sidebar } from 'react-admin';
 import AppBar from './AppBar';
-import { darkTheme } from './themes';
+import { darkTheme, lightTheme } from './themes';
 
 const CustomSidebar = props => <Sidebar {...props} size={200} />;
 const CustomLayout = props => (
     <Layout {...props} appBar={AppBar} sidebar={CustomSidebar} />
 );
 
-export default connect(state => ({
-    theme: state.theme === 'dark' ? darkTheme : {},
-}))(CustomLayout);
+export default connect(
+    state => ({
+        theme: state.theme === 'dark' ? darkTheme : lightTheme,
+    }),
+    {}
+)(CustomLayout);
