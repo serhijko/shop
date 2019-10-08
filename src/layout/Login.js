@@ -4,15 +4,22 @@ import { propTypes, reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
 
-import { Card, CardActions } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import TextField from '@material-ui/core/TextField';
-import { CircularProgress } from '@material-ui/core';
+import {
+    createMuiTheme,
+    MuiThemeProvider,
+    withStyles,
+} from '@material-ui/core/styles';
 import LockIcon from '@material-ui/icons/Lock';
-import { withStyles } from '@material-ui/core/styles';
 
 import { Notification, translate, userLogin } from 'react-admin';
+
+import { lightTheme } from './themes';
 
 const styles = theme => ({
     main: {
@@ -35,7 +42,13 @@ const styles = theme => ({
         justifyContent: 'center',
     },
     icon: {
-        backgroundColor: theme.palette.secondary[500],
+        backgroundColor: theme.palette.secondary.main,
+    },
+    hint: {
+        marginTop: '1em',
+        display: 'flex',
+        justifyContent: 'center',
+        color: theme.palette.grey[500],
     },
     form: {
         padding: '0 1em 1em 1em',
@@ -43,8 +56,8 @@ const styles = theme => ({
     input: {
         marginTop: '1em',
     },
-    button: {
-        width: '100%',
+    actions: {
+        padding: '0 1em 1em 1em',
     },
 });
 
@@ -69,7 +82,7 @@ class Login extends Component {
             auth,
             this.props.location.state
                 ? this.props.location.state.nextPathname
-                : '/',
+                : '/'
         );
     
     render() {
@@ -83,10 +96,11 @@ class Login extends Component {
                         </Avatar>
                     </div>
                     <form onSubmit={handleSubmit(this.login)}>
-                        <p>Hint: demo / demo</p>
+                        <div className={classes.hint}>Hint: demo / demo</div>
                         <div className={classes.form}>
                             <div className={classes.input}>
                                 <Field
+                                    autoFocus
                                     name="username"
                                     component={renderInput}
                                     label={translate('ra.auth.username')}
@@ -103,13 +117,14 @@ class Login extends Component {
                                 />
                             </div>
                         </div>
-                        <CardActions>
+                        <CardActions className={classes.actions}>
                             <Button
-                                raised
+                                variant="raised"
                                 type="submit"
                                 color="primary"
                                 disabled={isLoading}
                                 className={classes.button}
+                                fullWidth
                             >
                                 {isLoading && (
                                     <CircularProgress size={25} thickness={2} />
@@ -152,8 +167,22 @@ const enhance = compose(
             return errors;
         },
     }),
-    connect(mapStateToProps, { userLogin }),
-    withStyles(styles),
+    connect(
+        mapStateToProps,
+        { userLogin }
+    ),
+    withStyles(styles)
 );
 
-export default enhance(Login);
+const EnhancedLogin = enhance(Login);
+
+// We need to put the MuiThemeProvider decoration in another component
+// Because otherwise the withStyles() HOC used in EnhancedLogin won't get
+// the right theme
+const LoginWithTheme = props => (
+    <MuiThemeProvider theme={createMuiTheme(lightTheme)}>
+        <EnhancedLogin {...props} />
+    </MuiThemeProvider>
+);
+
+export default LoginWithTheme;
