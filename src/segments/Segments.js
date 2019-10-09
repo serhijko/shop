@@ -1,19 +1,18 @@
 import React from 'react';
 import Card from '@material-ui/core/Card';
 import Table from '@material-ui/core/Table';
-import { TableBody,
-    TableCell,
-    TableHead,
-    TableRow,
-} from '@material-ui/core';
-import { translate, ViewTitle } from 'react-admin';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import { translate, Title } from 'react-admin';
 
 import LinkToRelatedCustomers from './LinkToRelatedCustomers';
 import segments from './data';
 
-export default translate(({ translate }) => (
+const Segments = ({ translate }) => (
     <Card>
-        <ViewTitle title={translate('resources.segments.name')} />
+        <Title title={translate('resources.segments.name')} />
         <Table>
             <TableHead>
                 <TableRow>
@@ -35,4 +34,6 @@ export default translate(({ translate }) => (
             </TableBody>
         </Table>
     </Card>
-));
+);
+
+export default translate(Segments);
