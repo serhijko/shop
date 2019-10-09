@@ -9,7 +9,7 @@ import themeReducer from './themeReducer';
 import { Layout, Login } from './layout';
 import { Dashboard } from './dashboard';
 import customRoutes from './routes';
-import messages from './i18n';
+import englishMessages from './i18n/en';
 
 import visitors from './visitors';
 import orders from './orders';
@@ -21,7 +21,14 @@ import reviews from './reviews';
 import dataProviderFactory from './dataProvider';
 import fakeServerFactory from './fakeServer';
 
-const i18nProvider = locale => messages[locale];
+const i18nProvider = locale => {
+    if (locale === 'fr') {
+        return import('./i18n/fr').then(messages => messages.default);
+    }
+
+    // Always fallback on english
+    return englishMessages;
+};
 
 class App extends Component {
     state = { dataProvider: null };
