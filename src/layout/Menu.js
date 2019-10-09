@@ -132,7 +132,7 @@ class Menu extends Component {
                         />
                     }
                     medium={null}
-                    /><LocaleSwitcher />
+                /><LocaleSwitcher />
                 <Responsive
                     small={logout}
                     medium={null} // Pass null to render nothing on larger devices
@@ -145,7 +145,7 @@ class Menu extends Component {
 const mapStateToProps = state => ({
     open: state.admin.ui.sidebarOpen,
     theme: state.theme,
-    locale: state.locale,
+    locale: state.i18n.locale,
 });
 
 const enhance = compose(
