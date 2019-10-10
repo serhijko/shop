@@ -39,7 +39,7 @@ class Dashboard extends Component {
     }
 
     async fetchOrders() {
-        const { dataProvider } = this.props;
+        const { dataProvider, locale } = this.props;
         const aMonthAgo = new Date();
         aMonthAgo.setDate(aMonthAgo.getDate() - 30);
         const { data: recentOrders } = await dataProvider(
@@ -71,7 +71,7 @@ class Dashboard extends Component {
                 }
             );
         this.setState({
-            revenue: aggregations.revenue.toLocaleString(undefined, {
+            revenue: aggregations.revenue.toLocaleString(locale, {
                 style: 'currency',
                 currency: 'USD',
                 minimumFractionDigits: 0,
@@ -223,6 +223,7 @@ class Dashboard extends Component {
 
 const mapStateToProps = state => ({
     version: state.admin.ui.viewVersion,
+    locale: state.i18n.locale,
 });
 
 export default compose(

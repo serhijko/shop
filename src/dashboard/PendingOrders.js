@@ -24,7 +24,7 @@ const style = theme => ({
     },
 });
 
-const PendingOrders = ({ orders = [], customers = {}, translate, classes }) => (
+const PendingOrders = ({ orders = [], customers = {}, translate, classes, locale }) => (
     <Card className={classes.root}>
         <CardHeader title={translate('pos.dashboard.pending_orders')} />
         <List dense={true}>
@@ -46,7 +46,7 @@ const PendingOrders = ({ orders = [], customers = {}, translate, classes }) => (
                         <Avatar />
                     )}
                     <ListItemText
-                        primary={new Date(record.date).toLocaleString('en-GB')}
+                        primary={new Date(record.date).toLocaleString({locale})}
                         secondary={translate('pos.dashboard.order.items', {
                             smart_count: record.basket.length,
                             nb_items: record.basket.length,
